@@ -6,8 +6,9 @@ const bodyParser = require('body-parser');
 
 const notesRouter = require('./routes/notes');
 
-app.use(bodyParser.json());
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 // Use the notes route
 app.use('/api/notes', notesRouter);
 
